@@ -1,0 +1,92 @@
+﻿@model IEnumerable<MusergroupModel>
+@{
+
+}
+
+<h1 class="fathan">Users</h1>
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nama</th>
+            <th>Desc</th>
+
+            <!-- Add more headers if needed -->
+        </tr>
+    </thead>
+    <tbody>
+
+        @if (Model != null)
+        {
+            @foreach (var usergroup in Model)
+            {
+                <tr>
+                    <td>@usergroup.usergroupcode</td>
+                    <td>@usergroup.usergroupname</td>
+                    <td>@usergroup.usergroupdesc</td>
+
+                    <!-- Render other user data -->
+                </tr>
+            }
+        }
+        else
+        {
+            <p>Data not available.</p>
+        }
+
+    </tbody>
+</table>
+
+<form>
+    <div class="form-group">
+        <label for="id">ID</label>
+        <input type="text" class="form-control" id="usergroupcode" placeholder="Enter ID">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your ID with anyone else.</small>
+    </div>
+    <div class="form-group">
+        <label for="usercode">Nama Grup User</label>
+        <input type="text" class="form-control" id="usergroupname" placeholder="Kode User">
+    </div>
+    <div class="form-group">
+        <label for="userdesc">Group Desc</label>
+        <input type="text" class="form-control" id="usergroupdesc" placeholder="Group Desc">
+        <small id="emailHelp" class="form-text text-muted">Teken submit aja coba.</small>
+    </div>
+    <button type="submit" class="btn btn-primary" onclick="giveSwalFireAlert(event)">Submit</button>
+</form>
+
+<style>
+    .fathan {
+    color: blueviolet;
+    }
+
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script>
+
+    function giveAlert() {
+        alert("Belum ada postnya tolol");
+    }
+
+    function getAndSave() { 
+        var usergroupcode = document.getElementById("usergroupcode").value;
+        var usergroupname = document.getElementById("usergroupname").value;
+        var usergroupdesc = document.getElementById("usergroupdesc").value;
+
+
+
+    }
+
+    function giveSwalFireAlert(event) {
+        event.preventDefault();
+            Swal.fire({
+                title: 'Oops...',
+                text: 'Belum ada postnya tolol',
+                icon: 'warning',
+                confirmButtonText: 'OK'
+            });
+    
+    }
+
+</script>
